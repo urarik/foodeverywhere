@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="nation"
+            type="com.example.foodanywhere.datatype.Nation" />
+        <variable
+            name="nationLogic"
+            type="com.example.foodanywhere.businesslogic.NationLogic" />
+    </data>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border">
+
+            <ImageView
+                android:id="@+id/item_flag"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:paddingLeft="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/name"
+                android:text="@{nation.name}"
+                android:onClick="@{_->nationLogic.onNationClick(nation)}"
+                app:layout_constraintEnd_toStartOf="@+id/item_down"
+                app:layout_constraintStart_toEndOf="@+id/item_flag"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/item_down"
+                android:layout_width="42dp"
+                android:layout_height="43dp"
+                android:src="@drawable/ic_baseline_expand_more_24"
+                android:onClick="@{(view)->nationLogic.onArrowClick(view, nation)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            android:id="@+id/layout_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/nation_image"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@{nation.description}"
+                android:onClick="@{_->nationLogic.onNationClick(nation)}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/description" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="step"
+            type="com.example.foodanywhere.datatype.Step" />
+        <variable
+            name="cuisineLogic"
+            type="com.example.foodanywhere.businesslogic.CuisineLogic" />
+        <variable
+            name="manageLogic"
+            type="com.example.foodanywhere.businesslogic.ManageLogic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/image_step"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/text_step"
+            android:layout_width="415dp"
+            android:layout_height="317dp"
+            android:layout_marginTop="16dp"
+            android:gravity="top|start"
+            android:text="@{step.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_step" />
+
+        <ImageButton
+            android:id="@+id/button_cuisine_no"
+            android:layout_width="74dp"
+            android:layout_height="69dp"
+            android:background="@color/white"
+            android:rotation="45"
+            android:scaleX="3"
+            android:scaleY="3"
+            android:src="@drawable/ic_outline_x"
+            android:visibility="gone"
+            android:onClick="@{(view) -> manageLogic.onCuisineReject()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageButton
+            android:id="@+id/button_cuisine_yes"
+            android:layout_width="74dp"
+            android:layout_height="69dp"
+            android:background="@color/white"
+            android:rotation="45"
+            android:scaleX="3"
+            android:scaleY="3"
+            android:src="@drawable/ic_outline_circle_24"
+            android:visibility="gone"
+            android:onClick="@{(view) -> manageLogic.onCuisineConfirmed()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/button_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:onClick="@{(view) -> cuisineLogic.onNextStepClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button_view_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/review"
+            android:onClick="@{(view) -> cuisineLogic.onViewReviewClick()}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="step"
+            type="com.example.foodanywhere.datatype.Step" />
+
+        <variable
+            name="applyLogic"
+            type="com.example.foodanywhere.businesslogic.ApplyLogic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/image_add_step"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/button_load_step_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_load_step_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="136dp"
+            android:text="@string/load_image"
+            android:onClick="@{_ -> applyLogic.stepLoadImageClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_add_step"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/text_add_step"
+            android:layout_width="415dp"
+            android:layout_height="317dp"
+            android:layout_marginTop="16dp"
+            android:gravity="top|start"
+            android:hint="@string/description_cuisine"
+            android:text="@={step.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_add_step" />
+
+        <ImageButton
+            android:id="@+id/button_add_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:onClick="@{_ -> applyLogic.onNextStepClick(step)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button_cuisine_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{_ -> applyLogic.onStepDoneClick(step)}"
+            app:layout_constraintEnd_toStartOf="@id/button_add_next_step" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

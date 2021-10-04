@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_nation"
+            android:title="@string/menu_country" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_baseline_login"
+            android:title="@string/menu_login" />
+        <item
+            android:id="@+id/nav_recommendR"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_recommendR" />
+        <item
+            android:id="@+id/nav_manageCook"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="@string/menu_managecook"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_manageCuisine"
+            android:icon="@drawable/ic_baseline_local_dining_24"
+            android:title="@string/menu_managecuisine"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_applyCook"
+            android:icon="@drawable/ic_baseline_tag_faces_24"
+            android:title="@string/menu_applyCook"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_applyCuisine"
+            android:icon="@drawable/ic_baseline_priority_high_24"
+            android:title="@string/menu_applyCuisine"
+            android:visible="false"/>
+    </group>
+</menu>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="cuisine"
+            type="com.example.foodanywhere.datatype.Cuisine" />
+        <import type="java.util.List"/>
+        <variable
+            name="characteristics"
+            type="List&lt;Boolean&gt;"/>
+        <variable
+            name="cuisineLogic"
+            type="com.example.foodanywhere.businesslogic.CuisineLogic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/image_cuisine"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_nation_name"
+            android:layout_width="198dp"
+            android:layout_height="42dp"
+            android:hint="@string/name_nation"
+            android:textColor="@color/black"
+            android:textSize="@dimen/cuisine_font"
+            android:text="@{cuisine.nation}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_cuisine" />
+
+        <TextView
+            android:id="@+id/text_cuisine_name"
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:hint="@string/name_cuisine"
+            android:textColor="@color/black"
+            android:textSize="@dimen/cuisine_font"
+            android:text="@{cuisine.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_cuisine" />
+
+        <CheckBox
+            android:id="@+id/button_greasy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/c_greasy"
+            android:checked="@{characteristics[0]}"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_nation_name" />
+
+        <CheckBox
+            android:id="@+id/button_bland"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_bland"
+            android:checked="@{characteristics[1]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_bitter"
+            app:layout_constraintTop_toBottomOf="@+id/text_nation_name" />
+
+        <CheckBox
+            android:id="@+id/button_spicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_spicy"
+            android:checked="@{characteristics[2]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_bland"
+            app:layout_constraintTop_toBottomOf="@+id/text_cuisine_name" />
+
+        <CheckBox
+            android:id="@+id/button_salty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_salty"
+            android:checked="@{characteristics[3]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_short"
+            app:layout_constraintTop_toBottomOf="@+id/button_high" />
+
+        <CheckBox
+            android:id="@+id/button_bitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_bitter"
+            android:checked="@{characteristics[4]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_greasy"
+            app:layout_constraintTop_toBottomOf="@+id/text_nation_name" />
+
+        <CheckBox
+            android:id="@+id/button_sweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/c_sweet"
+            android:checked="@{characteristics[5]}"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_greasy" />
+
+        <CheckBox
+            android:id="@+id/button_long"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_long"
+            android:checked="@{characteristics[6]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_low"
+            app:layout_constraintTop_toBottomOf="@+id/button_bland" />
+
+        <CheckBox
+            android:id="@+id/button_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_short"
+            android:checked="@{characteristics[7]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_long"
+            app:layout_constraintTop_toBottomOf="@+id/button_spicy" />
+
+        <CheckBox
+            android:id="@+id/button_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_high"
+            android:checked="@{characteristics[8]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_spicy"
+            app:layout_constraintTop_toBottomOf="@+id/text_cuisine_name" />
+
+        <CheckBox
+            android:id="@+id/button_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/c_low"
+            android:checked="@{characteristics[9]}"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/button_sweet"
+            app:layout_constraintTop_toBottomOf="@+id/button_bitter" />
+
+        <LinearLayout
+            android:id="@+id/linear_ingredient_2"
+            android:layout_width="207dp"
+            android:layout_height="100dp"
+            android:gravity="top"
+            android:hint="@string/ingredient_cuisine"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_sweet" />
+
+        <LinearLayout
+            android:id="@+id/linear_ingredient_1"
+            android:layout_width="207dp"
+            android:layout_height="100dp"
+            android:gravity="top"
+            android:hint="@string/ingredient_cuisine"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linear_ingredient_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_sweet" />
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="415dp"
+            android:layout_height="317dp"
+            android:gravity="top|start"
+            android:hint="@string/description_cuisine"
+            android:textColor="@color/black"
+            android:textSize="@dimen/cuisine_font"
+            android:text="@{cuisine.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_ingredient_1" />
+
+        <ImageButton
+            android:id="@+id/button_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:textSize="@dimen/cuisine_font"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> cuisineLogic.onViewStepClick()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

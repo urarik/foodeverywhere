@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="review"
+            type="com.example.foodanywhere.datatype.Review" />
+
+        <variable
+            name="reviewLogic"
+            type="com.example.foodanywhere.businesslogic.ReviewLogic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/text_add_rating"
+            android:layout_width="415dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="156dp"
+            android:gravity="top|start"
+            android:hint="@string/description_review_rating"
+            android:text="@={review.rating}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/text_add_description"
+            android:layout_width="415dp"
+            android:layout_height="317dp"
+            android:layout_marginTop="16dp"
+            android:gravity="top|start"
+            android:hint="@string/description_review_descirption"
+            android:text="@={review.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_add_rating" />
+
+
+        <Button
+            android:id="@+id/button_cuisine_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{_ -> reviewLogic.onReviewDoneClick(review)}"
+            android:text="@string/done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

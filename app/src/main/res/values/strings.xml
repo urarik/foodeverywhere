@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">FoodAnywhere</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_country">나라</string>
+    <string name="menu_login">로그인</string>
+    <string name="menu_recommendR">랜덤 요리 추천</string>
+    <string name="menu_applyCook">요리사 신청</string>
+    <string name="menu_applyCuisine">요리 신청</string>
+    <string name="menu_managecook">요리사 신청 관리</string>
+    <string name="menu_managecuisine">요리 신청 관리</string>
+
+    <string name="hint_id">ID를 입력하세요</string>
+    <string name="hint_pass">비밀번호를 입력하세요</string>
+    <string name="hint_email">이메일을 입력하세요</string>
+    <string name="register">회원가입</string>
+    <string name="login">로그인</string>
+    <string name="already_login">이미 로그인 했습니다.</string>
+    <string name="logout">로그아웃</string>
+    <string name="no_login_message">로그인되어 있지 않습니다.</string>
+    <string name="login_message">환영합니다 %s님!\n상태: %s</string>
+
+    <string name="load_image">이미지 로드</string>
+    <string name="name_cuisine">음식 이름</string>
+    <string name="name_nation">나라 이름</string>
+    <string name="ingredient_cuisine">재료를 입력하세요. name: quantity  ,로 구분 </string>
+    <string name="description_cuisine">설명을 입력하세요.</string>
+    <string name="c_greasy">느끼하다</string>
+    <string name="c_bland">담백하다</string>
+    <string name="c_spicy">맵다</string>
+    <string name="c_salty">짜다</string>
+    <string name="c_bitter">쓰다</string>
+    <string name="c_sweet">달다</string>
+    <string name="c_long">오래 걸린다</string>
+    <string name="c_short">빨리 끝난다</string>
+    <string name="c_high">비싸다</string>
+    <string name="c_low">싸다</string>
+
+    <string name="action_add_cuisine">음식 추가</string>
+    <string name="done">끝</string>
+
+    <string name="review">리뷰</string>
+    <string name="add">리뷰 추가</string>
+
+    <string name="description_review_rating">평점을 작성하세요. (1 ~ 10)</string>
+    <string name="description_review_descirption">리뷰를 작성하세요.</string>
+
+    <string name="next_cuisine">다음</string>
+    <string name="view_cuidine">보기</string>
+
+
+
+</resources>

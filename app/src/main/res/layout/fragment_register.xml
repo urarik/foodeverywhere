@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="userInfo"
+            type="com.example.foodanywhere.datatype.UserInfo" />
+        <variable
+            name="userLogic"
+            type="com.example.foodanywhere.businesslogic.UserLogic" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding">
+
+
+        <EditText
+            android:id="@+id/reg_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_id"
+            android:text="@={userInfo.userId}"
+            android:padding="@dimen/padding" />
+
+        <EditText
+            android:id="@+id/reg_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_pass"
+            android:text="@={userInfo.userPassword}"
+            android:padding="@dimen/padding" />
+
+        <EditText
+            android:id="@+id/reg_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_email"
+            android:text="@={userInfo.userEmail}"
+            android:padding="@dimen/padding" />
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> userLogic.onRegisterClick(userInfo)}"
+            android:text="@string/register" />
+
+    </LinearLayout>
+</layout>

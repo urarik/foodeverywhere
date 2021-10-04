@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="cuisine"
+            type="com.example.foodanywhere.datatype.Cuisine" />
+        <variable
+            name="cuisineLogic"
+            type="com.example.foodanywhere.businesslogic.CuisineLogic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_cuisine_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border">
+
+        <ImageView
+            android:id="@+id/item_cuisine_flag"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:paddingLeft="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_cuisine_name"
+            android:layout_width="364dp"
+            android:layout_height="match_parent"
+            android:text="@{cuisine.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/name"
+            android:onClick="@{() -> cuisineLogic.onCuisineClick(cuisine)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/item_cuisine_flag"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
